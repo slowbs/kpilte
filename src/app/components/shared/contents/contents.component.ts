@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// declare const App:any;
 
 @Component({
   selector: 'app-contents',
@@ -10,6 +11,7 @@ export class ContentsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    // App.initialLoadPage();
   }
 
 }
