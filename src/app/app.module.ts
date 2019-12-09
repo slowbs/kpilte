@@ -3,21 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/shared/header/header.component';
 import { IndexComponent } from './components/content/index/index.component';
-import { ContentComponent } from './components/shared/content/content.component';
+import { SharedModule } from './components/shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    IndexComponent,
-    ContentComponent
+    IndexComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
