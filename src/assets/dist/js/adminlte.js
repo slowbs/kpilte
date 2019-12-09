@@ -1,6 +1,3 @@
-"use strict";
-var App = {
-  initialLoadPage: function () {
     /*! AdminLTE app.js
 * ================
 * Main JS application file for AdminLTE v2. This file
@@ -1161,6 +1158,3 @@ var App = {
         Plugin.call($('body'));
       });
     }(jQuery);
-
-  }
-}
