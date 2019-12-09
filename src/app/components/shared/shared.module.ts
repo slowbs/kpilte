@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { ContentsComponent } from './contents/contents.component';
+import { HeaderfullComponent } from './headerfull/headerfull.component';
 
 
 
@@ -15,7 +16,8 @@ import { ContentsComponent } from './contents/contents.component';
     SidebarComponent, 
     ControlSidebarComponent, 
     FooterComponent,
-    ContentsComponent
+    ContentsComponent,
+    HeaderfullComponent,
   ],
   imports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ContentsComponent } from './contents/contents.component';
     SidebarComponent, 
     ControlSidebarComponent, 
     FooterComponent,
-    ContentsComponent
+    ContentsComponent,
+    HeaderfullComponent
   ]
 })
 export class SharedModule { }
