@@ -1,11 +1,15 @@
 <!-- <app-header></app-header> -->
 <!-- <app-control-sidebar></app-control-sidebar> -->
 <!-- <app-sidebar></app-sidebar> -->
-<app-headerfull></app-headerfull>
+<section class="hold-transition skin-blue layout-top-nav">
+    <div class="wrapper">
+        <app-headerfull></app-headerfull>
 
-<!-- Content -->
-<div class="content-wrapper">
-    <ng-content></ng-content>
-</div>
+        <!-- Content -->
+        <div class="content-wrapper">
+            <ng-content></ng-content>
+        </div>
 
-<app-footer></app-footer>
+        <app-footer></app-footer>
+    </div>
+</section>

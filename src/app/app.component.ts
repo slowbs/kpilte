@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// declare const App:any;
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'kpilte';
   ngOnInit() {
+    // App.initialLoadPage()
   }
   
 }

@@ -1,5 +1,6 @@
 export const AppURL = {
-    Index: 'index'
+    Index: 'index',
+    Login: 'login'
 }
 
 export const backendURL: string = '/backend';
