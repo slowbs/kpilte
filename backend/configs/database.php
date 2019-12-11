@@ -21,7 +21,7 @@ if (PRODUCTION) {
     $host = 'localhost';
     $user = 'slowbs';
     $password = 'sodsongig4';
-    $dbname = 'modbudget';
+    $dbname = 'kpi';
     $route  = explode('?', str_replace('/backend', '', $_SERVER['REQUEST_URI']))[0];
 }
 
