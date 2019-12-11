@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { IndexComponent } from './components/content/index/index.component';
@@ -21,7 +23,9 @@ import { DataTablesModule } from 'angular-datatables';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    DataTablesModule
+    DataTablesModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
