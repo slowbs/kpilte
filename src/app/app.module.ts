@@ -7,6 +7,7 @@ import { SharedModule } from './components/shared/shared.module';
 import { LoginComponent } from './components/content/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AmphurComponent } from './components/content/amphur/amphur.component';
+import { DataTablesModule } from 'angular-datatables';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { AmphurComponent } from './components/content/amphur/amphur.component';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    DataTablesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -38,7 +38,8 @@ export class AmphurComponent implements OnInit {
     this.header = [{
       'type': this.type[this.params['type']],
       'status': this.status[this.params['status']]
-    }]
+    }
+  ]
 
     // console.log({
     //   'type' : this.status[this.params['type']],
