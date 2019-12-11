@@ -1,0 +1,5 @@
+//amphur name join with count client
+select amphur_name, count(*) from amphur a
+left join
+client c on c.amphurcode = a.amphurcode
+where 1 GROUP by a.amphurcode ORDER by a.amphurcode

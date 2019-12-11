@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppURL } from '../../../app.url'
 
 @Component({
   selector: 'app-index',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
+
+  AppURL = AppURL
 
   constructor() { }
 

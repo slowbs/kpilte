@@ -6,13 +6,15 @@ import { IndexComponent } from './components/content/index/index.component';
 import { SharedModule } from './components/shared/shared.module';
 import { LoginComponent } from './components/content/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AmphurComponent } from './components/content/amphur/amphur.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    LoginComponent
+    LoginComponent,
+    AmphurComponent
   ],
   imports: [
     BrowserModule,
