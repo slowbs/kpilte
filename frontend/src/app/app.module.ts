@@ -10,6 +10,7 @@ import { LoginComponent } from './components/content/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AmphurComponent } from './components/content/amphur/amphur.component';
 import { DataTablesModule } from 'angular-datatables';
+import { KpiListComponent } from './components/content/kpi-list/kpi-list.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { DataTablesModule } from 'angular-datatables';
     AppComponent,
     IndexComponent,
     LoginComponent,
-    AmphurComponent
+    AmphurComponent,
+    KpiListComponent
   ],
   imports: [
     BrowserModule,
