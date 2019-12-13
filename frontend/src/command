@@ -22,3 +22,9 @@ when par <= 4 then 'ไม่ผ่าน'
 end as status
 FROM `kpi_list` WHERE type = 1
 GROUP by status
+
+//client
+SELECT * FROM `client` c
+left join amphur a on a.amphurcode = c.amphurcode
+left join kpi_list k on 1 = 1
+WHERE k.type = 1 and k.par <= 1 and c.amphurcode = 01

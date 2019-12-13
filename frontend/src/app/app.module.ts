@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AmphurComponent } from './components/content/amphur/amphur.component';
 import { DataTablesModule } from 'angular-datatables';
 import { KpiListComponent } from './components/content/kpi-list/kpi-list.component';
+import { ClientComponent } from './components/content/client/client.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { KpiListComponent } from './components/content/kpi-list/kpi-list.compone
     IndexComponent,
     LoginComponent,
     AmphurComponent,
-    KpiListComponent
+    KpiListComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

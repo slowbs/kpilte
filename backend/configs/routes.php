@@ -8,6 +8,12 @@ $routes['/api/kpi']['DELETE'] = 'kpi/delete.php';
 // kpi-list
 $routes['/api/kpi-list']['GET'] = 'kpi-list/get.php';
 
+/** amphur */
+$routes['/api/amphur']['GET'] = 'amphur/get.php';
+
+/** client */
+$routes['/api/client']['GET'] = 'client/get.php';
+
 
 /** เอาไว้เทส session หน้า login ของ php */
 //$routes['/api/login']['GET'] = 'account/login.php';

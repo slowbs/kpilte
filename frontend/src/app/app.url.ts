@@ -2,7 +2,8 @@ export const AppURL = {
     Index: 'index',
     Login: 'login',
     Amphur: 'amphur',
-    Kpi: 'kpi'
+    Kpi: 'kpi',
+    Client: 'client'
 }
 
 export const backendURL: string = '/backend';

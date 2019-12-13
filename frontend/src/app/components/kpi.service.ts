@@ -16,6 +16,8 @@ export class KpiService {
 
   private backendKpi: string = this.backendAPI + '/kpi';
   private backendKpiList: string = this.backendAPI + '/kpi-list';
+  private backendAmphur: string = this.backendAPI + '/amphur';
+  private backendClient: string = this.backendAPI + '/client';
 
   constructor(
     private httpClient: HttpClient
@@ -28,6 +30,15 @@ export class KpiService {
   getKpiList(type: any, status: any) {
     return this.httpClient.get<Kpi[]>(this.backendKpiList, { params: { type, status } });
   }
+
+  getAmphur(type: any, status: any, kpi_id: any) {
+    return this.httpClient.get<Amphur[]>(this.backendAmphur, { params: { type, status, kpi_id } })
+  }
+
+  getClient(type: any, status: any, kpi_id: any, amphurcode: any) {
+    return this.httpClient.get<Client[]>(this.backendClient, { params: { type, status, kpi_id, amphurcode } })
+  }
+
 
 }
 
@@ -45,4 +56,11 @@ export interface Amphur {
   changwatcode: string,
   amphurcode: string,
   amphur_name: string
+}
+
+export interface Client {
+  id: string,
+  amphurcode: string,
+  hospcode: string,
+  hospname: string
 }
