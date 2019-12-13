@@ -2,3 +2,19 @@
     background: #d2d6de;
     height: 100%
 }
+
+.bg-1 {
+    background-color: #0073b7 !important;
+}
+
+.bg-2 {
+    background-color: #00c0ef !important;
+}
+
+.bg-3 {
+    background-color: #00a65a !important;
+}
+
+.bg-4 {
+    background-color: #dd4b39 !important;
+}

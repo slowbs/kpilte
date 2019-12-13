@@ -5,6 +5,9 @@ $routes['/api/kpi']['POST'] = 'kpi/post.php';
 $routes['/api/kpi']['PUT'] = 'kpi/put.php';
 $routes['/api/kpi']['DELETE'] = 'kpi/delete.php';
 
+// kpi-list
+$routes['/api/kpi-list']['GET'] = 'kpi-list/get.php';
+
 
 /** เอาไว้เทส session หน้า login ของ php */
 //$routes['/api/login']['GET'] = 'account/login.php';

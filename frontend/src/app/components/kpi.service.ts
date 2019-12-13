@@ -15,15 +15,29 @@ export class KpiService {
     `${backendURL}/api/`;
 
   private backendKpi: string = this.backendAPI + '/kpi';
+  private backendKpiList: string = this.backendAPI + '/kpi-list';
 
   constructor(
     private httpClient: HttpClient
   ) { }
 
   getKpi() {
-    return this.httpClient.get<Amphur[]>(this.backendKpi);
+    return this.httpClient.get<Kpi[]>(this.backendKpi);
   }
 
+  getKpiList(type: any, status: any) {
+    return this.httpClient.get<Kpi[]>(this.backendKpiList, { params: { type, status } });
+  }
+
+}
+
+export interface Kpi {
+  id: string,
+  name: string,
+  kpi_id: string,
+  value?: string,
+  type: string,
+  par: string
 }
 
 export interface Amphur {

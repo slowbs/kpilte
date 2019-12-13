@@ -3,3 +3,22 @@ select amphur_name, count(*) from amphur a
 left join
 client c on c.amphurcode = a.amphurcode
 where 1 GROUP by a.amphurcode ORDER by a.amphurcode
+
+//index
+SELECT *, CASE
+when par <= 1 then 'ทั้งหมด'
+when par <= 2 then 'ผ่าน'
+when par <= 3 then 'มีแน้วโน้ม'
+when par <= 4 then 'ไม่ผ่าน'
+end as status
+FROM `kpi_list` WHERE type = 1
+
+//index with count
+SELECT *, count(*) as amount, CASE
+when par <= 1 then 'ทั้งหมด'
+when par <= 2 then 'ผ่าน'
+when par <= 3 then 'มีแน้วโน้ม'
+when par <= 4 then 'ไม่ผ่าน'
+end as status
+FROM `kpi_list` WHERE type = 1
+GROUP by status
