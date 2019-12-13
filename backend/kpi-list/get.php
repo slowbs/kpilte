@@ -20,7 +20,7 @@ if (isset($_GET['type']) && isset($_GET['status'])) {
         if ($error_message) {
             http_response_code(400);
             exit(json_encode([
-                'message' => 'เวนเอ้ย'
+                'message' => $error_message
             ]));
         }
 

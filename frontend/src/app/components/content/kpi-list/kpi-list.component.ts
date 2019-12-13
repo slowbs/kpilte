@@ -32,7 +32,9 @@ export class KpiListComponent implements OnInit {
         this.kpiItem = result['result']
         console.log(this.kpiItem)
       },
-        excep => alert(excep.error.message))
+        excep => alert(excep.error.message)
+        // excep => console.log(excep.error.message)
+      )
   }
 
 }
