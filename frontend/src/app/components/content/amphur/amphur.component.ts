@@ -19,7 +19,8 @@ export class AmphurComponent implements OnDestroy, OnInit {
   public params = [{
     type: '',
     status: '',
-    kpi_id: ''
+    kpi_id: '',
+    kpi_name: ''
   }]
 
   public amphurItem: Amphur[] = [];
@@ -48,11 +49,11 @@ export class AmphurComponent implements OnDestroy, OnInit {
     //   'status' : this.status[this.params['status']]
     // }})
 
-    this.header = [{
-      'type': this.type[this.params['type']],
-      'status': this.status[this.params['status']],
-      'kpi_id': this.params['kpi_id']
-    }]
+    // this.header = [{
+    //   'type': this.type[this.params['type']],
+    //   'status': this.status[this.params['status']],
+    //   'kpi_id': this.params['kpi_id']
+    // }]
 
     // console.log({
     //   'type' : this.status[this.params['type']],
@@ -62,6 +63,13 @@ export class AmphurComponent implements OnDestroy, OnInit {
     this.kpiService.getAmphur(this.params['type'], this.params['status'], this.params['kpi_id'])
       .subscribe(result => {
         this.amphurItem = result['result']
+        this.header = [{
+          'type': this.type[this.params['type']],
+          'status': this.status[this.params['status']],
+          'kpi_id': this.params['kpi_id'],
+          'kpi_name': result['result2']['0']['name']
+        }]
+        // this.params['kpi_name'] = result['result2']
         this.dtTrigger.next();
         console.log(this.amphurItem)
         console.log(this.header)

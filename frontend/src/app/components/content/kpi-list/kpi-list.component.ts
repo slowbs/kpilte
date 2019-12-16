@@ -11,6 +11,10 @@ import { AppURL } from '../../../app.url'
 })
 export class KpiListComponent implements OnDestroy, OnInit {
 
+  status = ['', 'ทั้งหมด', 'ผ่าน', 'มีแนวโน้ม', 'ไม่ผ่าน']
+  type = ['', 'ตัวชี้วัดหนึ่ง', 'ตัวชี้วัดสอง', 'ตัวชี้วัดสาม', 'ตัวชี้วัดสี่']
+  header = []
+
   AppURL = AppURL
   private dtTrigger: Subject<any> = new Subject<any>();
   public kpiItem: any[] = [];
@@ -40,6 +44,11 @@ export class KpiListComponent implements OnDestroy, OnInit {
         excep => alert(excep.error.message)
         // excep => console.log(excep.error.message)
       )
+
+    this.header = [{
+      'type': this.type[this.params['type']],
+      'status': this.status[this.params['status']],
+    }]
   }
 
   ngOnDestroy(): void {

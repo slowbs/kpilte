@@ -28,3 +28,8 @@ SELECT * FROM `client` c
 left join amphur a on a.amphurcode = c.amphurcode
 left join kpi_list k on 1 = 1
 WHERE k.type = 1 and k.par <= 1 and c.amphurcode = 01
+
+//header client
+SELECT * FROM amphur
+left join kpi_list on 1 = 1
+where amphurcode = ? and kpi_id = ?
