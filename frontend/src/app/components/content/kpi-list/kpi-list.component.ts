@@ -40,6 +40,7 @@ export class KpiListComponent implements OnDestroy, OnInit {
         this.dtTrigger.next();
         this.kpiItem = result['result']
         console.log(this.kpiItem)
+        console.log(this.header)
       },
         excep => alert(excep.error.message)
         // excep => console.log(excep.error.message)
