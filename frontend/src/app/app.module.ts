@@ -12,6 +12,7 @@ import { AmphurComponent } from './components/content/amphur/amphur.component';
 import { DataTablesModule } from 'angular-datatables';
 import { KpiListComponent } from './components/content/kpi-list/kpi-list.component';
 import { ClientComponent } from './components/content/client/client.component';
+import { QofComponent } from './components/content/qof/qof.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ClientComponent } from './components/content/client/client.component';
     LoginComponent,
     AmphurComponent,
     KpiListComponent,
-    ClientComponent
+    ClientComponent,
+    QofComponent
   ],
   imports: [
     BrowserModule,

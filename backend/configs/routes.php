@@ -14,6 +14,8 @@ $routes['/api/amphur']['GET'] = 'amphur/get.php';
 /** client */
 $routes['/api/client']['GET'] = 'client/get.php';
 
+/** Qof */
+$routes['/api/qof']['GET'] = 'qof/get.php';
 
 /** เอาไว้เทส session หน้า login ของ php */
 //$routes['/api/login']['GET'] = 'account/login.php';

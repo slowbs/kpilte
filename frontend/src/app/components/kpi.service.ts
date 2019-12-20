@@ -15,6 +15,7 @@ export class KpiService {
     `${backendURL}/api/`;
 
   private backendKpi: string = this.backendAPI + '/kpi';
+  private backendQof: string = this.backendAPI + '/qof';
   private backendKpiList: string = this.backendAPI + '/kpi-list';
   private backendAmphur: string = this.backendAPI + '/amphur';
   private backendClient: string = this.backendAPI + '/client';
@@ -37,6 +38,10 @@ export class KpiService {
 
   getClient(type: any, status: any, kpi_id: any, amphurcode: any) {
     return this.httpClient.get<Client[]>(this.backendClient, { params: { type, status, kpi_id, amphurcode } })
+  }
+
+  getQof(type: any){
+    return this.httpClient.get<Qof[]>(this.backendQof, { params: { type }})
   }
 
 
@@ -63,4 +68,17 @@ export interface Client {
   amphurcode: string,
   hospcode: string,
   hospname: string
+}
+
+export interface Qof {
+  id: string,
+  kpi_id: string,
+  kpi_name: string,
+  type: string,
+  operator: string,
+  par: string,
+  a: string,
+  b: string,
+  c?: string,
+  d?: string
 }
