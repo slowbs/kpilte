@@ -7,6 +7,7 @@ import { AmphurComponent } from './components/content/amphur/amphur.component';
 import { KpiListComponent } from './components/content/kpi-list/kpi-list.component';
 import { ClientComponent } from './components/content/client/client.component';
 import { QofComponent } from './components/content/qof/qof.component';
+import { QofdistComponent } from './components/content/qofdist/qofdist.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,9 @@ const routes: Routes = [
   { path: AppURL.Client, component: ClientComponent },
   { path: AppURL.Client + '/:type' + '/:status' + '/:kpi_id' + '/:amphurcode', component: ClientComponent },
   { path: AppURL.Qof, component: QofComponent },
-  { path: AppURL.Qof + '/:type', component: QofComponent }
+  { path: AppURL.Qof + '/:type', component: QofComponent },
+  { path: AppURL.QofDist, component: QofdistComponent },
+  { path: AppURL.QofDist + '/:type' + '/:kpi_id', component: QofdistComponent}
 
 
 

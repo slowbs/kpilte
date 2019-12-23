@@ -13,6 +13,7 @@ import { DataTablesModule } from 'angular-datatables';
 import { KpiListComponent } from './components/content/kpi-list/kpi-list.component';
 import { ClientComponent } from './components/content/client/client.component';
 import { QofComponent } from './components/content/qof/qof.component';
+import { QofdistComponent } from './components/content/qofdist/qofdist.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { QofComponent } from './components/content/qof/qof.component';
     AmphurComponent,
     KpiListComponent,
     ClientComponent,
-    QofComponent
+    QofComponent,
+    QofdistComponent
   ],
   imports: [
     BrowserModule,

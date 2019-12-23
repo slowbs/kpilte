@@ -4,7 +4,8 @@ export const AppURL = {
     Amphur: 'amphur',
     Kpi: 'kpi',
     Client: 'client',
-    Qof: 'qof'
+    Qof: 'qof',
+    QofDist: 'qofdist'
 }
 
 export const backendURL: string = '/backend';
