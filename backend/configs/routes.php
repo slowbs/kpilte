@@ -17,10 +17,17 @@ $routes['/api/client']['GET'] = 'client/get.php';
 /** Qof */
 $routes['/api/qof']['GET'] = 'qof/get.php';
 
+/** Login */
+$routes['/api/login']['GET'] = 'login/profile.php';
+$routes['/api/login']['POST'] = 'login/post.php';
+$routes['/api/logout']['POST'] = 'login/logout.php';
+
+
+
 /** เอาไว้เทส session หน้า login ของ php */
 //$routes['/api/login']['GET'] = 'account/login.php';
 
 
-$routes['/api/login']['POST'] = 'account/login.php';
-$routes['/api/logout']['POST'] = 'account/logout.php';
-$routes['/api/profile']['GET'] = 'account/profile.php';
+// $routes['/api/login']['POST'] = 'account/login.php';
+// $routes['/api/logout']['POST'] = 'account/logout.php';
+// $routes['/api/profile']['GET'] = 'account/profile.php';

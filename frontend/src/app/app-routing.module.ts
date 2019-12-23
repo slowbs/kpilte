@@ -23,9 +23,8 @@ const routes: Routes = [
   { path: AppURL.Qof, component: QofComponent },
   { path: AppURL.Qof + '/:type', component: QofComponent },
   { path: AppURL.QofDist, component: QofdistComponent },
-  { path: AppURL.QofDist + '/:type' + '/:kpi_id', component: QofdistComponent}
-
-
+  { path: AppURL.QofDist + '/:type' + '/:kpi_id', component: QofdistComponent },
+  { path: '**', redirectTo: AppURL.Index, pathMatch: 'full' },
 
 ];
 

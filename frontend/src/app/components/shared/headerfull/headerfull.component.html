@@ -140,15 +140,12 @@
                         </ul>
                     </li>
                     <!-- User Account Menu -->
-                    <li *ngIf="1==1"><a [routerLink]="['/', AppURL.Login]">เข้าสู่ระบบ</a></li>
-                    <li class="dropdown user user-menu" *ngIf="1==1">
+                    <li class="dropdown user user-menu" *ngIf="profileItem">
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="../../../../assets/dist/img/user2-160x160.jpg" class="user-image"
-                                alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
+                            <span class="hidden-xs">{{ profileItem.username }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
@@ -182,11 +179,14 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a [routerLink]="['#']" class="btn btn-default btn-flat" (click)="onLogout()">Sign
+                                        out</a>
                                 </div>
                             </li>
                         </ul>
                     </li>
+                    <li *ngIf="!profileItem"><a [routerLink]="['/', AppURL.Login]">เข้าสู่ระบบ</a></li>
+
                 </ul>
             </div>
             <!-- /.navbar-custom-menu -->

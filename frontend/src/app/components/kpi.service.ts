@@ -19,6 +19,8 @@ export class KpiService {
   private backendKpiList: string = this.backendAPI + '/kpi-list';
   private backendAmphur: string = this.backendAPI + '/amphur';
   private backendClient: string = this.backendAPI + '/client';
+  private backendLogin: string = this.backendAPI + '/login';
+  private backendLogout: string = this.backendAPI + '/logout';
 
   constructor(
     private httpClient: HttpClient
@@ -44,6 +46,14 @@ export class KpiService {
     return this.httpClient.get<Qof[]>(this.backendQof, { params: { type }})
   }
 
+  // Account
+  postLogin(value: ILogin){
+    return this.httpClient.post<ILogin[]>(this.backendLogin, value)
+  }
+
+  getLogin(){
+    return this.httpClient.get<Profile[]>(this.backendLogin)
+  }
 
 }
 
@@ -81,4 +91,16 @@ export interface Qof {
   b: string,
   c?: string,
   d?: string
+}
+
+export interface ILogin {
+  username: string,
+  password: string,
+  remember: boolean
+}
+
+export interface Profile {
+  username: string,
+  user_type: string,
+  hostpname: string
 }
