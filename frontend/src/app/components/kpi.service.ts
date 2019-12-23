@@ -55,6 +55,10 @@ export class KpiService {
     return this.httpClient.get<Profile[]>(this.backendLogin)
   }
 
+  postLogout(){
+    return this.httpClient.post(this.backendLogout, null)
+  }
+
 }
 
 export interface Kpi {

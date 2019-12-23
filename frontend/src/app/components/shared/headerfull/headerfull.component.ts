@@ -25,30 +25,40 @@ export class HeaderfullComponent implements OnInit {
     this.kpiService.getLogin()
       .subscribe(result => {
         this.profileItem = result
-        console.log(this.profileItem)
+        // console.log(this.profileItem)
       },
         excep => console.log(excep.error))
   }
 
   /** ออกจากระบบ */
-  public onLogout() {
-    //console.log('Logout')
-    this.httpClient
-      .post(`${backendURL}/api/logout`, null)
-      .subscribe(
-        // result => {
-        //   console.log(result)
-        // },
-        // result => this.router.navigate(['/index']),
-        // result => console.log(result),
-        // except => alert(except.error.message)
-        result => {
-          console.log(result),
-          this.router.navigate['/index'],
-          this.ngOnInit()
-        },
-        excep => console.log(excep.error)
-      )
+  // public onLogout() {
+  //   //console.log('Logout')
+  //   this.httpClient
+  //     .post(`${backendURL}/api/logout`, null)
+  //     .subscribe(
+  //       // result => {
+  //       //   console.log(result)
+  //       // },
+  //       // result => this.router.navigate(['/index']),
+  //       // result => console.log(result),
+  //       // except => alert(except.error.message)
+  //       result => {
+  //         console.log(result),
+  //         this.router.navigate['/index'],
+  //         this.ngOnInit()
+  //       },
+  //       excep => console.log(excep.error)
+  //     )
+  // }
+
+  onLogout() {
+    this.kpiService.postLogout()
+      .subscribe(result => {
+        console.log(result),
+          this.router.navigate(['/index'])
+        this.ngOnInit()
+      },
+        excep => console.log(excep.error))
   }
 
 }
