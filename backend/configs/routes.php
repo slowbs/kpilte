@@ -17,6 +17,9 @@ $routes['/api/client']['GET'] = 'client/get.php';
 /** Qof */
 $routes['/api/qof']['GET'] = 'qof/get.php';
 
+/** QofDist */
+$routes['/api/qofdist']['GET'] = 'qofdist/get.php';
+
 /** Login */
 $routes['/api/login']['GET'] = 'login/profile.php';
 $routes['/api/login']['POST'] = 'login/post.php';

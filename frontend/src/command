@@ -33,3 +33,14 @@ WHERE k.type = 1 and k.par <= 1 and c.amphurcode = 01
 SELECT * FROM amphur
 left join kpi_list on 1 = 1
 where amphurcode = ? and kpi_id = ?
+
+//qofdist
+select c.hmainname, c.hmain, q.TOTAL, q.YES, q.per from (
+(select sum(if(outcome = 'YES',1,0)) as YES,
+count(outcome) as TOTAL,
+ROUND(sum(if(outcome = 'YES',1,0))/count(outcome)*100, 2) as per,
+hmain
+from `qof63k_1.1` GROUP BY hmain) as q
+left join
+cmastercup c on c.hmain = q.hmain)
+GROUP BY q.hmain

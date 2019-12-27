@@ -16,6 +16,7 @@ export class KpiService {
 
   private backendKpi: string = this.backendAPI + '/kpi';
   private backendQof: string = this.backendAPI + '/qof';
+  private backendQofDist: string = this.backendAPI + '/qofdist';
   private backendKpiList: string = this.backendAPI + '/kpi-list';
   private backendAmphur: string = this.backendAPI + '/amphur';
   private backendClient: string = this.backendAPI + '/client';
@@ -42,20 +43,24 @@ export class KpiService {
     return this.httpClient.get<Client[]>(this.backendClient, { params: { type, status, kpi_id, amphurcode } })
   }
 
-  getQof(type: any){
-    return this.httpClient.get<Qof[]>(this.backendQof, { params: { type }})
+  getQof(type: any) {
+    return this.httpClient.get<Qof[]>(this.backendQof, { params: { type } })
+  }
+
+  getQofDist(type: any, kpi_id: any) {
+    return this.httpClient.get<QofDist[]>(this.backendQofDist, { params: { type, kpi_id } })
   }
 
   // Account
-  postLogin(value: ILogin){
+  postLogin(value: ILogin) {
     return this.httpClient.post<ILogin[]>(this.backendLogin, value)
   }
 
-  getLogin(){
+  getLogin() {
     return this.httpClient.get<Profile[]>(this.backendLogin)
   }
 
-  postLogout(){
+  postLogout() {
     return this.httpClient.post(this.backendLogout, null)
   }
 
@@ -107,4 +112,13 @@ export interface Profile {
   username: string,
   user_type: string,
   hostpname: string
+}
+
+export interface QofDist {
+  id: string,
+  hmain: string,
+  hmainname: string,
+  a: string,
+  b: string,
+  per: string
 }
