@@ -29,22 +29,24 @@
                         class="table table-striped table-bordered" style="width:100%">
                         <thead>
                             <tr>
-                                <th>รหัส</th>
+                                <th>PID</th>
+                                <th>CID</th>
                                 <th>ชื่อ</th>
-                                <th>B</th>
-                                <th>A</th>
-                                <th>C</th>
-                                <th>อัตรา</th>
+                                <th>วันเกิด</th>
+                                <th>date_start</th>
+                                <th>date_end</th>
+                                <th>outcome</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr *ngFor="let item of qofClientItem">
-                                <td> {{ item.hospcode }} </td>
-                                <td> {{ item.hospname }}</td>
-                                <td><a [routerLink] = "['/', AppURL.QofInfo, params['type'], params['kpi_id'], item?.hmain, item.hospcode, 1 ]">{{ item.B }}</a></td>
-                                <td><a [routerLink] = "['/', AppURL.QofInfo, params['type'], params['kpi_id'], item?.hmain, item.hospcode, 2 ]">{{ item.A }}</a></td>
-                                <td><a [routerLink] = "['/', AppURL.QofInfo, params['type'], params['kpi_id'], item?.hmain, item.hospcode, 3 ]">{{ item.C }}</a></td>
-                                <td> {{ item.per }} </td>
+                                <td>{{ item.pid }}</td>
+                                <td>{{ item.cid }}</td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.birth }}</td>
+                                <td>{{ item.date_start }}</td>
+                                <td>{{ item.date_end }}</td>
+                                <td>{{ item.outcome }}</td>
                             </tr>
                         </tbody>
                     </table>

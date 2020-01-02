@@ -9,6 +9,7 @@ import { ClientComponent } from './components/content/client/client.component';
 import { QofComponent } from './components/content/qof/qof.component';
 import { QofdistComponent } from './components/content/qofdist/qofdist.component';
 import { QclientComponent } from './components/content/qclient/qclient.component';
+import { QofinfoComponent } from './components/content/qofinfo/qofinfo.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,9 @@ const routes: Routes = [
   { path: AppURL.QofDist + '/:type' + '/:kpi_id', component: QofdistComponent },
   { path: AppURL.Qclient, component: QclientComponent },
   { path: AppURL.Qclient + '/:type' + '/:kpi_id' + '/:hmain', component: QclientComponent },
-  { path: '**', redirectTo: AppURL.Index, pathMatch: 'full' },
+  { path: AppURL.QofInfo, component: QofinfoComponent },
+  { path: AppURL.QofInfo + '/:type' + '/:kpi_id' + '/:hmain' + '/:hospcode' + '/:status', component: QofinfoComponent },
+  { path: '**', redirectTo: AppURL.Index, pathMatch: 'full' }
 
 ];
 

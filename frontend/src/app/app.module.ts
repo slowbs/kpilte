@@ -15,6 +15,7 @@ import { ClientComponent } from './components/content/client/client.component';
 import { QofComponent } from './components/content/qof/qof.component';
 import { QofdistComponent } from './components/content/qofdist/qofdist.component';
 import { QclientComponent } from './components/content/qclient/qclient.component';
+import { QofinfoComponent } from './components/content/qofinfo/qofinfo.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { QclientComponent } from './components/content/qclient/qclient.component
     ClientComponent,
     QofComponent,
     QofdistComponent,
-    QclientComponent
+    QclientComponent,
+    QofinfoComponent
   ],
   imports: [
     BrowserModule,

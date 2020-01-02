@@ -1,15 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { KpiService, QofClient } from '../../kpi.service';
-import { AppURL } from '../../../app.url';
-import { Subject } from 'rxjs';
+import { KpiService } from '../../kpi.service';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
+import { AppURL } from '../../../app.url'
 
 @Component({
-  selector: 'app-qclient',
-  templateUrl: './qclient.component.html',
-  styleUrls: ['./qclient.component.css']
+  selector: 'app-qofinfo',
+  templateUrl: './qofinfo.component.html',
+  styleUrls: ['./qofinfo.component.css']
 })
-export class QclientComponent implements OnDestroy, OnInit {
+export class QofinfoComponent implements OnDestroy, OnInit {
 
   AppURL = AppURL
   type = ['', 'ตัวชี้วัด QOF กลาง (ประเทศ)', 'ตัวชี้วัด QOF เขต', 'ตัวชี้วัด ค่า K จังหวัด', 'ตัวชี้วัด PPA']
@@ -17,11 +17,7 @@ export class QclientComponent implements OnDestroy, OnInit {
   public qofClientItem = []
   private dtTrigger: Subject<any> = new Subject<any>();
   dtOptions: DataTables.Settings = {};
-  public params = [{
-    type: '',
-    kpi_id: '',
-    hmain: ''
-  }]
+  public params = []
 
   constructor(
     private kpiService: KpiService,
@@ -31,13 +27,16 @@ export class QclientComponent implements OnDestroy, OnInit {
       this.params['type'] = queryParam.type
       this.params['kpi_id'] = queryParam.kpi_id
       this.params['hmain'] = queryParam.hmain
+      this.params['hospcode'] = queryParam.hospcode
+      this.params['status'] = queryParam.status
       // this.params['status'] = queryParam.status
-      console.log(this.params['type'], this.params['kpi_id'], this.params['hmain'])
+      // console.log(this.params['type'], this.params['kpi_id'], this.params['hmain'],
+      //   this.params['hospcode'], this.params['status'])
     })
   }
 
   ngOnInit() {
-    this.kpiService.getQofClient(this.params['type'], this.params['kpi_id'], this.params['hmain'])
+    this.kpiService.getQofInfo(this.params['type'], this.params['kpi_id'], this.params['hmain'], this.params['hospcode'], this.params['status'])
       .subscribe(result => {
         this.dtTrigger.next()
         this.qofClientItem = result['result']
@@ -48,15 +47,13 @@ export class QclientComponent implements OnDestroy, OnInit {
       'type': this.type[this.params['type']]
     }]
     this.dtOptions = {
-      pageLength: 50
+      pageLength: 25
     };
   }
-
 
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
-
 
 }
