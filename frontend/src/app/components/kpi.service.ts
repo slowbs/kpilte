@@ -17,6 +17,7 @@ export class KpiService {
   private backendKpi: string = this.backendAPI + '/kpi';
   private backendQof: string = this.backendAPI + '/qof';
   private backendQofDist: string = this.backendAPI + '/qofdist';
+  private backendQofClient: string = this.backendAPI + '/qofclient';
   private backendKpiList: string = this.backendAPI + '/kpi-list';
   private backendAmphur: string = this.backendAPI + '/amphur';
   private backendClient: string = this.backendAPI + '/client';
@@ -49,6 +50,10 @@ export class KpiService {
 
   getQofDist(type: any, kpi_id: any) {
     return this.httpClient.get<QofDist[]>(this.backendQofDist, { params: { type, kpi_id } })
+  }
+
+  getQofClient(type: any, kpi_id: any, hmain: any){
+    return this.httpClient.get<QofClient[]>(this.backendQofClient, { params: { type, kpi_id, hmain }})
   }
 
   // Account
@@ -121,4 +126,15 @@ export interface QofDist {
   a: string,
   b: string,
   per: string
+}
+
+export interface QofClient {
+  pid: string,
+  name: string,
+  cid: string,
+  birth: string,
+  sex: string,
+  typearea: string,
+  date_start: string,
+  date_end: string
 }

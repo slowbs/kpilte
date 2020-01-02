@@ -44,3 +44,36 @@ from `qof63k_1.1` GROUP BY hmain) as q
 left join
 cmastercup c on c.hmain = q.hmain)
 GROUP BY q.hmain
+
+//qofclient
+SELECT c.hmainname, c.hmain, q.B, q.A, q.C, q.per, q.hospcode, cl.hospname from (
+            (select sum(if(outcome = 'YES',1,0)) as A,
+            count(outcome) as B,
+            sum(if(outcome = 'NO',1,0)) AS C,
+            ROUND(sum(if(outcome = 'YES',1,0))/count(outcome)*100, 2) as per,
+            hmain, hospcode
+            from `qof63k_1.1` GROUP BY hospcode) as q
+            left join
+            cmastercup c on c.hmain = q.hmain
+            left JOIN
+            client cl on cl.hospcode = q.hospcode)
+            where q.hmain = '11339'
+            GROUP BY q.hospcode
+
+//qofrpst
+select cl.hospname, c.hmainname from (
+(SELECT * FROM `client` ) as cl
+left join cmastercup c on c.hsub = cl.hospcode )
+where cl.hospcode = 08751
+
+//qofrpst2
+select cl.hospcode, c.hmainname, cl.outcome from (
+(SELECT * FROM `qof63k_1.1` ) as cl
+left join cmastercup c on c.hsub = cl.hospcode )
+where cl.hospcode = 40742
+
+//qofrpst3
+select cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, cl.outcome from (
+(SELECT * FROM `qof63k_1.1` ) as cl
+left join cmastercup c on c.hsub = cl.hospcode )
+where cl.hospcode = 40742 and cl.outcome = 'YES'

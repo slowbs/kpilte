@@ -5,6 +5,7 @@ if (isset($_GET['type']) && (isset($_GET['kpi_id']))) {
     $sql = "SELECT c.hmainname, c.hmain, q.B, q.A, q.per from (
         (select sum(if(outcome = 'YES',1,0)) as A,
         count(outcome) as B,
+        -- sum(if(outcome = 'NO',1,0)) as C,
         ROUND(sum(if(outcome = 'YES',1,0))/count(outcome)*100, 2) as per,
         hmain
         from `$_GET[kpi_id]` GROUP BY hmain) as q

@@ -33,21 +33,17 @@
                                 <th>ชื่อ</th>
                                 <th>B</th>
                                 <th>A</th>
+                                <th>C</th>
                                 <th>อัตรา</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let item of qofDistItem">
-                                <td> {{ item.hmain }} </td>
-                                <td><a
-                                        [routerLink]="['/', AppURL.Qclient, params['type'], params['kpi_id'], item?.hmain ]">{{ item.hmainname }}</a>
-                                </td>
-                                <!-- <td> {{ item.hmainname }}</td> -->
-                                <!-- <td><a [routerLink] = "['/', AppURL.Qclient, params['type'], params['kpi_id'], item?.hmain, 1 ]">{{ item.B }}</a></td>
+                            <tr *ngFor="let item of qofClientItem">
+                                <td> {{ item.hospcode }} </td>
+                                <td> {{ item.hospname }}</td>
+                                <td><a [routerLink] = "['/', AppURL.Qclient, params['type'], params['kpi_id'], item?.hmain, 1 ]">{{ item.B }}</a></td>
                                 <td><a [routerLink] = "['/', AppURL.Qclient, params['type'], params['kpi_id'], item?.hmain, 2 ]">{{ item.A }}</a></td>
-                                <td><a [routerLink] = "['/', AppURL.Qclient, params['type'], params['kpi_id'], item?.hmain, 3 ]">{{ item.C }}</a></td> -->
-                                <td>{{ item.B }}</td>
-                                <td>{{ item.A }}</td>
+                                <td><a [routerLink] = "['/', AppURL.Qclient, params['type'], params['kpi_id'], item?.hmain, 3 ]">{{ item.C }}</a></td>
                                 <td> {{ item.per }} </td>
                             </tr>
                         </tbody>

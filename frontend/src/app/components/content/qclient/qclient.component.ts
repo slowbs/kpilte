@@ -1,51 +1,48 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { KpiService, QofDist } from '../../kpi.service';
-import { ActivatedRoute, Router } from '@angular/router';
-import { AppURL } from '../../../app.url'
+import { KpiService, QofClient } from '../../kpi.service';
+import { AppURL } from '../../../app.url';
 import { Subject } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-qofdist',
-  templateUrl: './qofdist.component.html',
-  styleUrls: ['./qofdist.component.css']
+  selector: 'app-qclient',
+  templateUrl: './qclient.component.html',
+  styleUrls: ['./qclient.component.css']
 })
-export class QofdistComponent implements OnDestroy, OnInit {
+export class QclientComponent implements OnDestroy, OnInit {
 
   AppURL = AppURL
   type = ['', 'ตัวชี้วัด QOF กลาง (ประเทศ)', 'ตัวชี้วัด QOF เขต', 'ตัวชี้วัด ค่า K จังหวัด', 'ตัวชี้วัด PPA']
   header = []
-  public qofDistItem: QofDist[] = []
+  public qofClientItem: QofClient[] = []
   private dtTrigger: Subject<any> = new Subject<any>();
   dtOptions: DataTables.Settings = {};
   public params = [{
     type: '',
-    kpi_id: ''
+    kpi_id: '',
+    hospcode: ''
   }]
 
   constructor(
     private kpiService: KpiService,
-    private activateRoute: ActivatedRoute,
-    private router: Router
+    private activateRoute: ActivatedRoute
   ) {
     this.activateRoute.params.forEach(queryParam => {
       this.params['type'] = queryParam.type
       this.params['kpi_id'] = queryParam.kpi_id
-      // console.log(this.params['type'], this.params['kpi_id'])
+      this.params['hmain'] = queryParam.hmain
+      // this.params['status'] = queryParam.status
+      // console.log(this.params['type'], this.params['kpi_id'], this.params['hmain'])
     })
   }
 
   ngOnInit() {
-    this.kpiService.getQofDist(this.params['type'], this.params['kpi_id'])
+    this.kpiService.getQofClient(this.params['type'], this.params['kpi_id'], this.params['hmain'])
       .subscribe(result => {
-        this.dtTrigger.next()
-        this.qofDistItem = result['result']
-        console.log(this.qofDistItem)
+        this.qofClientItem = result['result']
+        console.log(this.qofClientItem)
       },
-        excep => {
-          // alert(excep.error.message),
-          this.router.navigate(['/index'])
-        }
-      )
+        excep => alert(excep.error.message))
     this.header = [{
       'type': this.type[this.params['type']]
     }]
@@ -54,9 +51,11 @@ export class QofdistComponent implements OnDestroy, OnInit {
     };
   }
 
+
   ngOnDestroy(): void {
     // Do not forget to unsubscribe the event
     this.dtTrigger.unsubscribe();
   }
+
 
 }

@@ -5,7 +5,8 @@ export const AppURL = {
     Kpi: 'kpi',
     Client: 'client',
     Qof: 'qof',
-    QofDist: 'qofdist'
+    QofDist: 'qofdist',
+    Qclient: 'qclient'
 }
 
 export const backendURL: string = '/backend';

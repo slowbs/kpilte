@@ -14,6 +14,7 @@ import { KpiListComponent } from './components/content/kpi-list/kpi-list.compone
 import { ClientComponent } from './components/content/client/client.component';
 import { QofComponent } from './components/content/qof/qof.component';
 import { QofdistComponent } from './components/content/qofdist/qofdist.component';
+import { QclientComponent } from './components/content/qclient/qclient.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { QofdistComponent } from './components/content/qofdist/qofdist.component
     KpiListComponent,
     ClientComponent,
     QofComponent,
-    QofdistComponent
+    QofdistComponent,
+    QclientComponent
   ],
   imports: [
     BrowserModule,
