@@ -3,7 +3,7 @@
 
 if (
     isset($_GET['type']) && isset($_GET['kpi_id']) && isset($_GET['hmain'])
-    && isset($_GET['hospcode']) && isset($_GET['status'])
+    && isset($_GET['hospcode']) && isset($_GET['status']) && isset($_SESSION['login']) && ($_SESSION['user']['hospcode'] == $_GET['hospcode'])
 ) {
     if ($_GET['status'] == 1) {
         $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, cl.outcome from (
