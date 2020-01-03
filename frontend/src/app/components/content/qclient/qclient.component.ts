@@ -13,7 +13,7 @@ export class QclientComponent implements OnDestroy, OnInit {
 
   AppURL = AppURL
   type = ['', 'ตัวชี้วัด QOF กลาง (ประเทศ)', 'ตัวชี้วัด QOF เขต', 'ตัวชี้วัด ค่า K จังหวัด', 'ตัวชี้วัด PPA']
-  header = []
+  public header: [] = []
   public qofClientItem = []
   private dtTrigger: Subject<any> = new Subject<any>();
   dtOptions: DataTables.Settings = {};
@@ -41,12 +41,14 @@ export class QclientComponent implements OnDestroy, OnInit {
       .subscribe(result => {
         this.dtTrigger.next()
         this.qofClientItem = result['result']
-        console.log(this.qofClientItem)
+        this.header = result['result2']
+        this.header['type'] = this.type[this.params['type']]
+        // console.log(this.qofClientItem)
       },
         excep => alert(excep.error.message))
-    this.header = [{
-      'type': this.type[this.params['type']]
-    }]
+    // this.header = [{
+    //   'type': this.type[this.params['type']]
+    // }]
     this.dtOptions = {
       pageLength: 50
     };

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { KpiService, QofDist } from '../../kpi.service';
+import { KpiService, QofDist, Header } from '../../kpi.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AppURL } from '../../../app.url'
 import { Subject } from 'rxjs';
@@ -13,8 +13,8 @@ export class QofdistComponent implements OnDestroy, OnInit {
 
   AppURL = AppURL
   type = ['', 'ตัวชี้วัด QOF กลาง (ประเทศ)', 'ตัวชี้วัด QOF เขต', 'ตัวชี้วัด ค่า K จังหวัด', 'ตัวชี้วัด PPA']
-  header = []
   public qofDistItem: QofDist[] = []
+  public header:[] = []
   private dtTrigger: Subject<any> = new Subject<any>();
   dtOptions: DataTables.Settings = {};
   public params = [{
@@ -39,16 +39,21 @@ export class QofdistComponent implements OnDestroy, OnInit {
       .subscribe(result => {
         this.dtTrigger.next()
         this.qofDistItem = result['result']
-        console.log(this.qofDistItem)
+        this.header = result['result2']
+        this.header['type'] = this.type[this.params['type']]
+        // console.log(this.qofDistItem, this.header)
       },
         excep => {
           // alert(excep.error.message),
           this.router.navigate(['/index'])
         }
       )
-    this.header = [{
-      'type': this.type[this.params['type']]
-    }]
+    // this.header = [{
+    //   'type'= this.type[this.params['type']]
+    // }]
+    // this.header = {
+    //   'type': this.type[this.params['type']]
+    // }
     this.dtOptions = {
       pageLength: 50
     };

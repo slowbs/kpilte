@@ -47,18 +47,17 @@ if (
     }
 
     /** ดึง header */
-    $query = 'SELECT * FROM amphur
-        left join kpi_list on 1 = 1
-        where amphurcode = ? and kpi_id = ?';
+    $query = 'SELECT * FROM `kpi_qof` WHERE kpi_id = ?';
     $stmt = mysqli_prepare($database, $query);
     mysqli_stmt_bind_param(
         $stmt,
-        'ss',
-        $_GET['amphurcode'],
+        's',
         $_GET['kpi_id']
     );
     mysqli_stmt_execute($stmt);
-    $result2 = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    // $result2 = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    // $result = mysqli_fetch_assoc($query);
+    $result2 = $stmt->get_result()->fetch_assoc();
 
     // ถ้า error
     $error_message = mysqli_error($database);

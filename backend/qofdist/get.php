@@ -15,6 +15,19 @@ if (isset($_GET['type']) && (isset($_GET['kpi_id']))) {
     $query = mysqli_query($database, $sql);
     $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 
+    /** ดึง header */
+    $query = 'SELECT * FROM `kpi_qof` WHERE kpi_id = ?';
+    $stmt = mysqli_prepare($database, $query);
+    mysqli_stmt_bind_param(
+        $stmt,
+        's',
+        $_GET['kpi_id']
+    );
+    mysqli_stmt_execute($stmt);
+    // $result2 = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    // $result = mysqli_fetch_assoc($query);
+    $result2 = $stmt->get_result()->fetch_assoc();
+
     // ถ้า error
     $error_message = mysqli_error($database);
 
@@ -28,7 +41,8 @@ if (isset($_GET['type']) && (isset($_GET['kpi_id']))) {
 
     // echo json_encode($result);
     echo json_encode([
-        'result' => $result
+        'result' => $result,
+        'result2' => $result2
     ]);
 } else {
     http_response_code(400);

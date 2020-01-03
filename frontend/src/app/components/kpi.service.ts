@@ -153,3 +153,9 @@ export interface QofInfo {
   date_start: Date,
   date_end: string
 }
+
+export interface Header {
+  type: string
+  kpi_id?: string
+  kpi_name?: string
+}
