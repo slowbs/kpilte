@@ -2,7 +2,7 @@
 
 
 if (isset($_GET['type']) && isset($_GET['kpi_id']) && isset($_GET['hmain'])) {
-    $query = "SELECT c.hmainname, c.hmain, q.B, q.A, q.C, q.per, q.hospcode, cl.hospname from (
+    $query = "SELECT c.hmainname, c.hmain, q.B, q.A, q.C, q.per, q.hospcode, ms.hospname from (
         (select sum(if(outcome = 'YES',1,0)) as A,
         count(outcome) as B,
         sum(if(outcome = 'NO',1,0)) AS C,
@@ -12,7 +12,7 @@ if (isset($_GET['type']) && isset($_GET['kpi_id']) && isset($_GET['hmain'])) {
         left join
         cmastercup c on c.hmain = q.hmain
         left JOIN
-        client cl on cl.hospcode = q.hospcode)
+        mas_client ms on ms.hospcode = q.hospcode)
         where q.hmain = ?
         GROUP BY q.hospcode";
     $stmt = mysqli_prepare($database, $query);
