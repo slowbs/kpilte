@@ -63,4 +63,6 @@ export class QofinfoComponent implements OnDestroy, OnInit {
     this.dtTrigger.unsubscribe();
   }
 
+  unsorted() { }
+
 }

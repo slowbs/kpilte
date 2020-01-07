@@ -6,8 +6,12 @@ if (
     && isset($_GET['hospcode']) && isset($_GET['status']) && isset($_SESSION['login']) && ($_SESSION['user']['hospcode'] == $_GET['hospcode'])
 ) {
     if ($_GET['status'] == 1) {
-        $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, 
-        cl.date_serve, cl.outcome from (
+        // $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, 
+        // cl.date_serve, cl.outcome from (
+        //     (SELECT * FROM `$_GET[kpi_id]` ) as cl
+        //     left join cmastercup c on c.hsub = cl.hospcode )
+        //     where cl.hospcode = ?";
+        $query = "SELECT * from (
             (SELECT * FROM `$_GET[kpi_id]` ) as cl
             left join cmastercup c on c.hsub = cl.hospcode )
             where cl.hospcode = ?";
