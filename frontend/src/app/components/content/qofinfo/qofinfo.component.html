@@ -40,41 +40,57 @@
                 <div class="box-body">
                     <table datatable class="row-border hover" [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
                         class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <!-- <tr>
-                                <th>PID</th>
-                                <th>CID</th>
-                                <th>ชื่อ</th>
-                                <th>วันเกิด</th>
-                                <th>date_start</th>
-                                <th>date_end</th>
-                                <th>date_serve</th>
-                                <th>outcome</th>
-                            </tr> -->
-                            <tr>
-                                <th *ngFor="let item of qofInfoItem[0] | keyvalue: unsorted">
-                                    {{ item.key }}
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- <tr *ngFor="let item of qofInfoItem">
-                                <td>{{ item.pid }}</td>
-                                <td>{{ item.cid }}</td>
-                                <td>{{ item.name }}</td>
-                                <td>{{ item.birth }}</td>
-                                <td>{{ item.date_start }}</td>
-                                <td>{{ item.date_end }}</td>
-                                <td>{{ item.date_serve }}</td>
-                                <td>{{ item.outcome }}</td>
-                            </tr> -->
+                        <ng-template [ngIf]="params['kpi_id'] == 'QOF63_2.1'">
+                            <thead>
+                                <tr>
+                                    <th>PID</th>
+                                    <th>CID</th>
+                                    <th>ชื่อ</th>
+                                    <th>วันเกิด</th>
+                                    <th>date_start</th>
+                                    <th>date_end</th>
+                                    <th>date_serve</th>
+                                    <th>outcome</th>
+                                </tr>
+                                <!-- <tr>
+                                    <th *ngFor="let item of qofInfoItem[0] | keyvalue: unsorted">
+                                        {{ item.key }}
+                                    </th>
+                                </tr> -->
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of qofInfoItem">
+                                    <td>{{ item.pid }}</td>
+                                    <td>{{ item.cid }}</td>
+                                    <td>{{ item.name }}</td>
+                                    <td>{{ item.birth }}</td>
+                                    <td>{{ item.date_start }}</td>
+                                    <td>{{ item.date_end }}</td>
+                                    <td>{{ item.date_serve }}</td>
+                                    <td>{{ item.outcome }}</td>
+                                </tr>
 
-                            <tr *ngFor="let item of qofInfoItem">
-                                <td *ngFor="let items of item | keyvalue: unsorted">
-                                    {{ items.value }}
-                                </td>
-                            </tr>
-                        </tbody>
+                                <!-- <tr *ngFor="let item of qofInfoItem">
+                                    <td *ngFor="let items of item | keyvalue: unsorted">
+                                        {{ items.value }}
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </ng-template>
+                        <ng-template [ngIf]="params['kpi_id'] == 'QOF63K_1.1'">
+                            <thead>
+                                <tr>
+                                    <th>PID</th>
+                                    <th>CID</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of qofInfoItem">
+                                    <td>{{ item.pid }}</td>
+                                    <td>{{ item.cid }}</td>
+                                </tr>
+                            </tbody>
+                        </ng-template>
                     </table>
                 </div>
             </div>
