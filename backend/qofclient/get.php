@@ -22,6 +22,17 @@ if (isset($_GET['type']) && isset($_GET['kpi_id']) && isset($_GET['hmain'])) {
         $_GET['hmain']
     );
     mysqli_stmt_execute($stmt);
+    // ถ้า error
+    $error_message = mysqli_error($database);
+
+    /** เช็ค error */
+    if ($error_message) {
+        http_response_code(400);
+        exit(json_encode([
+            'message' => $error_message
+        ]));
+    }
+
     $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
     /** ดึง header */
@@ -35,8 +46,6 @@ if (isset($_GET['type']) && isset($_GET['kpi_id']) && isset($_GET['hmain'])) {
     mysqli_stmt_execute($stmt);
     // $result2 = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     // $result = mysqli_fetch_assoc($query);
-    $result2 = $stmt->get_result()->fetch_assoc();
-
     // ถ้า error
     $error_message = mysqli_error($database);
 
@@ -47,6 +56,7 @@ if (isset($_GET['type']) && isset($_GET['kpi_id']) && isset($_GET['hmain'])) {
             'message' => $error_message
         ]));
     }
+    $result2 = $stmt->get_result()->fetch_assoc();
 
     /** ส่งค่าไป frontend */
     echo json_encode([

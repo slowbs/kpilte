@@ -47,6 +47,7 @@ export class QofinfoComponent implements OnDestroy, OnInit {
       },
         excep => {
           alert(excep.error.message)
+          // console.log(excep.error.message)
           this.router.navigate(['/'])
         })
     // excep => console.log(excep.error.message))

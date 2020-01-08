@@ -22,10 +22,24 @@ if (
             $_GET['hospcode']
         );
         mysqli_stmt_execute($stmt);
+        // ถ้า error
+        $error_message = mysqli_error($database);
+
+        /** เช็ค error */
+        if ($error_message) {
+            http_response_code(400);
+            exit(json_encode([
+                'message' => $error_message
+            ]));
+        }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     } else if ($_GET['status'] == 2) {
-        $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, 
-        cl.date_serve, cl.outcome from (
+        // $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, 
+        // cl.date_serve, cl.outcome from (
+        //     (SELECT * FROM `$_GET[kpi_id]` ) as cl
+        //     left join cmastercup c on c.hsub = cl.hospcode )
+        //     where cl.hospcode = ? and cl.outcome = 'YES'";
+        $query = "SELECT * from (
             (SELECT * FROM `$_GET[kpi_id]` ) as cl
             left join cmastercup c on c.hsub = cl.hospcode )
             where cl.hospcode = ? and cl.outcome = 'YES'";
@@ -36,10 +50,24 @@ if (
             $_GET['hospcode']
         );
         mysqli_stmt_execute($stmt);
+        // ถ้า error
+        $error_message = mysqli_error($database);
+
+        /** เช็ค error */
+        if ($error_message) {
+            http_response_code(400);
+            exit(json_encode([
+                'message' => $error_message
+            ]));
+        }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     } else if ($_GET['status'] == 3) {
-        $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, 
-        cl.date_serve, cl.outcome from (
+        // $query = "SELECT cl.hospcode, cl.pid, cl.cid, cl.name, cl.birth, cl.date_start, cl.date_end, 
+        // cl.date_serve, cl.outcome from (
+        //     (SELECT * FROM `$_GET[kpi_id]` ) as cl
+        //     left join cmastercup c on c.hsub = cl.hospcode )
+        //     where cl.hospcode = ? and cl.outcome = 'NO'";
+        $query = "SELECT * from (
             (SELECT * FROM `$_GET[kpi_id]` ) as cl
             left join cmastercup c on c.hsub = cl.hospcode )
             where cl.hospcode = ? and cl.outcome = 'NO'";
@@ -50,6 +78,16 @@ if (
             $_GET['hospcode']
         );
         mysqli_stmt_execute($stmt);
+        // ถ้า error
+        $error_message = mysqli_error($database);
+
+        /** เช็ค error */
+        if ($error_message) {
+            http_response_code(400);
+            exit(json_encode([
+                'message' => $error_message
+            ]));
+        }
         $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
@@ -64,8 +102,6 @@ if (
     mysqli_stmt_execute($stmt);
     // $result2 = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     // $result = mysqli_fetch_assoc($query);
-    $result2 = $stmt->get_result()->fetch_assoc();
-
     // ถ้า error
     $error_message = mysqli_error($database);
 
@@ -76,6 +112,7 @@ if (
             'message' => $error_message
         ]));
     }
+    $result2 = $stmt->get_result()->fetch_assoc();
 
     /** ส่งค่าไป frontend */
     echo json_encode([
