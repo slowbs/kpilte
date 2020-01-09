@@ -27,12 +27,7 @@
 //     ]);
 // }
 
-$sql = 'select id, p.budgetno, p.activityno, p.projectno, name, income, outcome, refund, sum(income - outcome + refund) as balance, person, workgroup from (
-    (select * from project) as p
-    left JOIN
-    (select projectno, budgetno, activityno, sum(income) as income, sum(outcome) as outcome, sum(refund) as refund from list GROUP by projectno, activityno) as l on l.activityno = p.activityno and l.projectno = p.projectno)
-    where 1
-    group by p.id';
+$sql = 'SELECT kpi_id, kpi_name from kpi_qof';
 $query = mysqli_query($database, $sql);
 $result = mysqli_fetch_all($query, MYSQLI_ASSOC);
 

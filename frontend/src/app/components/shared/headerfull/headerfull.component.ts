@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
 export class HeaderfullComponent implements OnInit {
 
   public profileItem: Profile[] = [];
+  public modelSearch: any = {
+    'kpi_name': ''
+  }
+  public searchQofItem: []
 
   AppURL = AppURL;
 
@@ -59,6 +63,12 @@ export class HeaderfullComponent implements OnInit {
         this.ngOnInit()
       },
         excep => console.log(excep.error))
+  }
+
+  onSearchSubmit() {
+    console.log(this.modelSearch)
+    this.kpiService.getSuggestion(this.modelSearch)
+    this.router.navigate(['/searchqof'])
   }
 
 }

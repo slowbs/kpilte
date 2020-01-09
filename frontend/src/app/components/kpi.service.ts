@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { backendURL } from '../app.url'
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +25,7 @@ export class KpiService {
   private backendClient: string = this.backendAPI + '/client';
   private backendLogin: string = this.backendAPI + '/login';
   private backendLogout: string = this.backendAPI + '/logout';
+  private backendSearchQof: string = this.backendAPI + '/searchqof';
 
   constructor(
     private httpClient: HttpClient
@@ -73,6 +75,34 @@ export class KpiService {
 
   postLogout() {
     return this.httpClient.post(this.backendLogout, null)
+  }
+
+  // getSearchQof() {
+  //   return this.httpClient.get(this.backendSearchQof)
+  // }
+
+  // postSearchQof(value: any) {
+  //   return this.httpClient.post(this.backendSearchQof, value)
+  // }
+
+  /** QOF search */
+
+  private results = new BehaviorSubject([]);
+
+  public getResults$() {
+    // console.log(this.results)
+    return this.results.asObservable();
+  }
+
+  public getSuggestion(value: any) {
+    this.httpClient.post(this.backendSearchQof, value)
+      .subscribe(
+        result => {
+          this.results.next(result['result'])
+          // console.log(this.results)
+        },
+        excep => console.log(excep.error.message)
+      );
   }
 
 }

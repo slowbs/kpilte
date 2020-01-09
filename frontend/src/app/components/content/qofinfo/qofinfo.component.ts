@@ -13,7 +13,7 @@ export class QofinfoComponent implements OnDestroy, OnInit {
 
   AppURL = AppURL
   type = ['', 'ตัวชี้วัด QOF กลาง (ประเทศ)', 'ตัวชี้วัด QOF เขต', 'ตัวชี้วัด ค่า K จังหวัด', 'ตัวชี้วัด PPA']
-  public header:[] = []
+  public header: [] = []
   public qofInfoItem = []
   private dtTrigger: Subject<any> = new Subject<any>();
   dtOptions: DataTables.Settings = {};

@@ -10,6 +10,7 @@ import { QofComponent } from './components/content/qof/qof.component';
 import { QofdistComponent } from './components/content/qofdist/qofdist.component';
 import { QclientComponent } from './components/content/qclient/qclient.component';
 import { QofinfoComponent } from './components/content/qofinfo/qofinfo.component';
+import { SearchqofComponent } from './components/content/searchqof/searchqof.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: AppURL.Qclient + '/:type' + '/:kpi_id' + '/:hmain', component: QclientComponent },
   { path: AppURL.QofInfo, component: QofinfoComponent },
   { path: AppURL.QofInfo + '/:type' + '/:kpi_id' + '/:hmain' + '/:hospcode' + '/:status', component: QofinfoComponent },
+  { path: AppURL.SearchQof, component: SearchqofComponent },
   { path: '**', redirectTo: AppURL.Index, pathMatch: 'full' }
 
 ];

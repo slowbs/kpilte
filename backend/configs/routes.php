@@ -31,6 +31,10 @@ $routes['/api/login']['GET'] = 'login/profile.php';
 $routes['/api/login']['POST'] = 'login/post.php';
 $routes['/api/logout']['POST'] = 'login/logout.php';
 
+/** SearchQof */
+$routes['/api/searchqof']['GET'] = 'searchqof/get.php';
+$routes['/api/searchqof']['POST'] = 'searchqof/post.php';
+
 
 
 /** เอาไว้เทส session หน้า login ของ php */

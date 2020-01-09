@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { ContentsComponent } from './contents/contents.component';
 import { HeaderfullComponent } from './headerfull/headerfull.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -21,7 +22,8 @@ import { HeaderfullComponent } from './headerfull/headerfull.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     HeaderComponent,
