@@ -58,15 +58,15 @@ export class HeaderfullComponent implements OnInit {
   onLogout() {
     this.kpiService.postLogout()
       .subscribe(result => {
-        console.log(result),
-          this.router.navigate(['/index'])
+        // console.log(result)
+        this.router.navigate(['/index'])
         this.ngOnInit()
       },
         excep => console.log(excep.error))
   }
 
   onSearchSubmit() {
-    console.log(this.modelSearch)
+    // console.log(this.modelSearch)
     this.kpiService.getSuggestion(this.modelSearch)
     this.router.navigate(['/searchqof'])
   }
