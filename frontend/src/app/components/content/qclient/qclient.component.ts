@@ -32,7 +32,7 @@ export class QclientComponent implements OnDestroy, OnInit {
       this.params['kpi_id'] = queryParam.kpi_id
       this.params['hmain'] = queryParam.hmain
       // this.params['status'] = queryParam.status
-      console.log(this.params['type'], this.params['kpi_id'], this.params['hmain'])
+      // console.log(this.params['type'], this.params['kpi_id'], this.params['hmain'])
     })
   }
 

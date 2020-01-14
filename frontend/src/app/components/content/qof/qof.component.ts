@@ -38,7 +38,7 @@ export class QofComponent implements OnDestroy, OnInit {
       .subscribe(result => {
         this.dtTrigger.next()
         this.qofItem = result['result']
-        console.log(this.qofItem)
+        // console.log(this.qofItem)
       },
         excep => alert(excep.error.message)
       )
